@@ -19,5 +19,6 @@ Create a Physically-Redeemable NFT token
 - allow user to send a transaction / update contract state (i.e. send a transaction to a contract)
 - allow the user to read state from a contract
 
-### PART 3 - Additional Features
+### Function
+For this project I will implement the ERC721 Open Zeppelin preset smart contract https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/presets/ERC721PresetMinterPauserAutoId.sol
 
