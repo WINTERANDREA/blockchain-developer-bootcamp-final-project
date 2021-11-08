@@ -1,15 +1,23 @@
 # blockchain-developer-bootcamp-final-project
 
-WEB3 DAPP WORKING WITH MAPS API
+## Project Name
+Physical NFT
+
+## Project Scope
+Create a Physically-Redeemable NFT token
 
 ## Requirements
-1) Login to the dapp with Metamask
-2) Connect the dapp with a Map service (Google Maps, etc)
-3) $pinToken will be use to access to the dapp and send rewards to dapp contributors
-4) Every user can use pin token to bet on a place in the map
-5) A pin on the map is added
-6) User spend their $pinToken to have access to the app and be able to visualize pinned place and donate
-8) Contributor can earn $pinToken
+### PART 1 - Smart Contracts
+- Create NFT token - https://docs.openzeppelin.com/contracts/2.x/api/token/erc721
+- List the NFT in marketplace where users can participate to the auction
+- Allow users to trade the NFT
+- redeem nft as physical asset
 
-## Additional features
+### PART 2 - Web 3 Integration:
+- detect Metamsk is / is not installed
+- allow the user to get access to metamask
+- allow user to send a transaction / update contract state (i.e. send a transaction to a contract)
+- allow the user to read state from a contract
+
+### PART 3 - Additional Features
 
