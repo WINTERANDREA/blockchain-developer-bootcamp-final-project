@@ -7,7 +7,7 @@ import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 
 /// @title Contract for ERC 721 Marketplace  
-/// @author Andrea Casero
+/// @author Andrea Casero - winterandrea
 /// @notice Physically (Not yet redeemable) marketplace for luxury wines
 /// @dev Minting is made manually one by one and needs to be associated to a custom uri
 contract NFTLuxWine is Ownable, ReentrancyGuard, ERC721Enumerable{
