@@ -1,24 +1,35 @@
 # blockchain-developer-bootcamp-final-project
 
 ## Project Name
-Physical NFT 
+NFT LUXURY WINE
 
 ## Project Scope
-Create a Physically-Redeemable NFT token
+Create a Physically-Redeemable marketplace for wines
+
+## Description
+ Luxury Wine NFT Marketplace based on openZeppelin ERC721 contract.
+ The goal of the project is allow winery to publish unique wine collection selling the bottle as a physical-digital asset.
+ Marketplace users can buy the bottle, set on sale and price.
+ The marketplace will have a key features that allow nft owner to redeem the bottle asking the winery to ship it(still figuring out which will be the best method to handle it within the smart contract/backend).
+
+ At the moment the minting process is not automated that means Winery needs to upload nft image on IPFS (easily through pinata service) and mint manually one by one. In the future the entire process will be automated.
 
 ## Requirements
-### PART 1 - Smart Contracts
-- Create NFT token - https://docs.openzeppelin.com/contracts/2.x/api/token/erc721
-- List the NFT in marketplace where users can participate to the auction | future
-- Allow users to trade the NFT
-- redeem nft as physical asset
+Winery (contract owner) can mint nft.
+User can't mint nft.
+User can buy the nft.
+User can set onsale metadata.
+User can set price metadata.
+User can sell the nft that was bought.
+Transferring ETH to the previous token holder.
+Display all nft on sale in the marketplace page
+Display owned nft in the profile page
+Reedem the physical assets associated to nft (will be implemented in the future)
 
-### PART 2 - Web 3 Integration:
-- detect Metamsk is / is not installed
-- allow the user to get access to metamask
-- allow user to send a transaction / update contract state (i.e. send a transaction to a contract)
-- allow the user to read state from a contract
 
-### Function
-For this project I will implement the ERC721 Open Zeppelin preset smart contract https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/presets/ERC721PresetMinterPauserAutoId.sol
+
+## The following functionalities were tested:
+
+
+
 
