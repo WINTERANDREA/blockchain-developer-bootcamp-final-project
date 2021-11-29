@@ -1,7 +1,7 @@
 # blockchain-developer-bootcamp-final-project
 
 ## Project Name
-Physical NFT
+Physical NFT 
 
 ## Project Scope
 Create a Physically-Redeemable NFT token
@@ -9,7 +9,7 @@ Create a Physically-Redeemable NFT token
 ## Requirements
 ### PART 1 - Smart Contracts
 - Create NFT token - https://docs.openzeppelin.com/contracts/2.x/api/token/erc721
-- List the NFT in marketplace where users can participate to the auction
+- List the NFT in marketplace where users can participate to the auction | future
 - Allow users to trade the NFT
 - redeem nft as physical asset
 
