@@ -149,7 +149,7 @@ contract NFTLuxWine is Ownable, ReentrancyGuard, ERC721Enumerable{
         return address(this);
     }
     
-    function getOwnerAddres() public view returns(address){
+    function getOwnerAddress() public view returns(address){
         return _owner;
     }
     

@@ -41,27 +41,29 @@
       </div>
 
 
-      <div>
+      <form onsubmit="return false">
         <div class=" inline">
           <label for="uri">Uri</label>
-          <input id="uri" type="text">
+          <input id="uri" type="text" required>
         </div>
         <div class="inline">
           <label for="name">Name</label>
-          <input id="name" type="text">
+          <input id="name" type="text" required>
         </div>
         <div class="inline">
           <label for="price">Price (eth)</label>
-          <input id="price" type="number">
+          <input id="price" type="number" pattern="[0-9]+([\.,][0-9]+)?" step="0.01" required>
         </div>
         <div class="inline">
           <label for="onSale">onSale</label>
           <input id="onsale" type="checkbox">
         </div>
-      </div>
-      <button style="width: 100%;margin-top: 10px;" id="mintWine">MINT</button>
+        <button type="submit" style="width: 100%;margin-top: 10px;" id="mintWine" value="MINT">MINT</button>
+
+      </form>
+
       <p class="note">*Only the contract address owner can mint a new nft</p>
-      <p class="note">** Use this uri to mint the first 10 NFT Luxury Wine:<br>
+      <p class="note">** If you are the owner use this uri to mint the first 10 NFT Luxury Wine:<br>
         https://gateway.pinata.cloud/ipfs/QmZUn1TJScL9m51fyqm1Pnx6HtCNTci2v3FvukuSSfshYM/</p>
 
       <!-- <p>NFT PROJECT SYMBOL</p>

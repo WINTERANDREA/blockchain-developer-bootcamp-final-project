@@ -12,6 +12,9 @@ const totalsupply = async () => {
   let totalsupply = document.querySelector("#totalsupply");
   var h3 = document.createElement("h3");
   const totalSupply = await contract.methods.totalSupply().call();
+  if (!totalSupply) {
+    totalSupply == 0;
+  }
   h3.innerHTML = `The Winery has already minted <h2 id="wineId" style="display:inline; color: purple"> ${totalSupply}</h2> NFT Luxury Wine`;
   totalsupply.appendChild(h3);
 };
@@ -27,6 +30,12 @@ totalsupply();
 // // => 1
 
 mintWine.onclick = async () => {
+  let contractOwner = await contract.methods.getOwnerAddress().call();
+  if (contractOwner.toLowerCase() != ethereum.selectedAddress.toLowerCase()) {
+    alert("Sorry! Only the owner of the contract can mint NFT Luxury Wine");
+    return;
+  }
+
   var wineId = document.querySelector("#wineId").innerHTML;
   var uri = document.querySelector("#uri").value;
   var name = document.querySelector("#name").value;
@@ -36,43 +45,20 @@ mintWine.onclick = async () => {
   let newWineId = wineId + 1;
   let newUri = uri + newWineId;
   let newName = name + "_" + newWineId;
-
+  let newOnsale = new Boolean();
   if (onsale.checked) {
-    onsale.value = true;
+    newOnsale = true;
   } else {
-    onsale.value = false;
+    newOnsale = false;
   }
+  console.log(newOnsale, typeof newOnsale);
 
-  console.log(newUri);
-  console.log(newName);
-  console.log(Web3.utils.toWei(price, "ether"));
-  var mintedWine = await contract.methods.mintWine(newUri, newName, Web3.utils.toWei(price, "ether"), onsale).send({ from: ethereum.selectedAddress });
-  //console.log("tokenId", mintedWine.events.WineMetadata.returnValues);
+  var mintedWine = await contract.methods.mintWine(newUri, newName, Web3.utils.toWei(price, "ether"), newOnsale).send({ from: ethereum.selectedAddress }, (err, res) => {
+    if (err) {
+      alert(err);
+    }
+  });
   var tokenId = mintedWine.events.Transfer.returnValues.tokenId;
-  console.log(tokenId);
+  alert(`Succesfully minted NFT Luxury Wine with id ${tokenId}`);
   window.location.reload();
 };
-
-// balance.onclick = async () => {
-//   const balanceOf = await contract.methods.balanceOf(ethereum.selectedAddress).call();
-//   console.log(balanceOf);
-//   alert(`The new balance of${ethereum.selectedAddress} is ${balanceOf}`);
-// };
-
-// symbol.onclick = async () => {
-//   const symbol = await contract.methods.symbol().call();
-//   console.log(symbol);
-// };
-
-// async function getURI(wineId) {
-//   const uri = await contract.methods.tokenURI(wineId).call();
-//   return uri;
-// }
-
-// wineuri.onclick = async () => {
-//   var value = document.querySelector("#wineuri-value");
-//   var wineId = document.querySelector("#wineId").value;
-//   var uri = await getURI(wineId);
-//   value.innerHTML = `This is the URI of token ${wineId}: ${uri}`;
-//   //;
-// };

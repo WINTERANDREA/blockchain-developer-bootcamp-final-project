@@ -174,9 +174,6 @@ input[type="number"] {
 .wineCard {
   min-width: 275px;
   overflow: hidden;
-  box-shadow: 1px 2px 4px rgba(90, 90, 90, 0.15);
-  border: 1px solid rgb(88, 88, 88);
-  border-radius: 7px;
 }
 
 .imageContainer {
@@ -190,4 +187,23 @@ input[type="number"] {
 
 .textContainer {
   padding: 0.75em;
+}
+
+#pendingApproval {
+  word-break: break-word;
+}
+
+.nft-container {
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+@media (max-width: 460px) {
+  .nft-container {
+    justify-content: center;
+  }
 }

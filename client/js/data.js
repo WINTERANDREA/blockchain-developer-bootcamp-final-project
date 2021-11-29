@@ -1,4 +1,4 @@
-export const address = "0xB6Dc24fC725A84417A931c2663ed38879Ffa9CfE";
+export const address = "0x6102C00a7a997308Cb734E2c5f7Ff4D69Da5b4D3";
 
 export const abi = [
   {
@@ -757,7 +757,7 @@ export const abi = [
   },
   {
     inputs: [],
-    name: "getOwnerAddres",
+    name: "getOwnerAddress",
     outputs: [
       {
         internalType: "address",
