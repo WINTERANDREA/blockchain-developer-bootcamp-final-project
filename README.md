@@ -25,16 +25,16 @@ Create a Physically-Redeemable marketplace for wines
  In the next future will be integrated the REDEEM functionality where the bottle's owner can ask the winery to ship the physical bottle to a specific physical address (after authentication).
 
 ## Project Requirements
-Winery (contract owner) can mint nft.
-User can't mint nft.
-User can buy the nft.
-User can set onsale metadata.
-User can set price metadata.
-User can sell the nft that was bought.
-Transferring ETH to the previous token holder.
-Display all nft on sale in the marketplace page
-Display owned nft in the profile page
-Reedem the physical assets associated to nft (will be implemented in the future)
+1. Winery (contract owner) can mint nft.
+2. User can't mint nft.
+3. User can buy the nft.
+4. User can set onsale metadata.
+5. User can set price metadata.
+6. User can sell the nft that was bought.
+7. Transferring ETH to the previous token holder.
+8. Display all nft on sale in the marketplace page
+9. Display owned nft in the profile page
+10. Reedem the physical assets associated to the nft (will be implemented in the future)
 
 ## Frontend directory
 ./client
