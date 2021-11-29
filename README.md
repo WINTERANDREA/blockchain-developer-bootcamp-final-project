@@ -1,4 +1,8 @@
 # blockchain-developer-bootcamp-final-project
+Project preview deployed on Ropsten Network 
+
+** Get Ropsten Eth Faucet
+https://faucet.dimensions.network/
 
 ## Project Name
 NFT LUXURY WINE
@@ -26,6 +30,9 @@ Display all nft on sale in the marketplace page
 Display owned nft in the profile page
 Reedem the physical assets associated to nft (will be implemented in the future)
 
+
+## FRONTEND
+
 ## ABI & CONTRACT ADDRESS SETTINGS
 Deploy the smart contract and edit the file at: ./client/js/data.js
 
@@ -44,4 +51,5 @@ Deploy the smart contract and edit the file at: ./client/js/data.js
    3. Price should be equal to the price offers
 
 
-
+## PERSONAL ETHEREUM ACCOUNT FOR NFT CERTIFICATION
+0x404c74f4D7DdF401B728E146D6af010877bca04f

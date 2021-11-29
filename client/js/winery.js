@@ -12,7 +12,7 @@ const totalsupply = async () => {
   let totalsupply = document.querySelector("#totalsupply");
   var h3 = document.createElement("h3");
   const totalSupply = await contract.methods.totalSupply().call();
-  h3.innerHTML = `The Winery has already minted <h2 style="display:inline; color: purple"> ${totalSupply}</h2> NFT Luxury Wine`;
+  h3.innerHTML = `The Winery has already minted <h2 id="wineId" style="display:inline; color: purple"> ${totalSupply}</h2> NFT Luxury Wine`;
   totalsupply.appendChild(h3);
 };
 
@@ -27,17 +27,26 @@ totalsupply();
 // // => 1
 
 mintWine.onclick = async () => {
+  var wineId = document.querySelector("#wineId").innerHTML;
   var uri = document.querySelector("#uri").value;
   var name = document.querySelector("#name").value;
   var price = document.querySelector("#price").value;
   var onsale = document.querySelector("#onsale");
+  wineId = parseInt(wineId);
+  let newWineId = wineId + 1;
+  let newUri = uri + newWineId;
+  let newName = name + "_" + newWineId;
+
   if (onsale.checked) {
     onsale.value = true;
   } else {
     onsale.value = false;
   }
+
+  console.log(newUri);
+  console.log(newName);
   console.log(Web3.utils.toWei(price, "ether"));
-  var mintedWine = await contract.methods.mintWine(uri, name, Web3.utils.toWei(price, "ether"), onsale).send({ from: ethereum.selectedAddress });
+  var mintedWine = await contract.methods.mintWine(newUri, newName, Web3.utils.toWei(price, "ether"), onsale).send({ from: ethereum.selectedAddress });
   //console.log("tokenId", mintedWine.events.WineMetadata.returnValues);
   var tokenId = mintedWine.events.Transfer.returnValues.tokenId;
   console.log(tokenId);
