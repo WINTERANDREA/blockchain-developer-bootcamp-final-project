@@ -42,18 +42,29 @@ Create a Physically-Redeemable marketplace to trade Luxury Wine
 - git checkout Main
 
 ### Contracts
-- Run npm install in project root to install Truffle and smart contract dependencies (openZeppelin)
-- Run local testnet in port 9545 with an Ethereum client, e.g. Ganache
-  - ```truffle compile```
-- truffle migrate --network development
-- truffle console --network development
-- Run tests in Truffle console: test
-development network id is 1337, remember to change it in Metamask as well!
-## Frontend directory
-./client
+- Run npm install in the project root directory to install Truffle and smart contract dependencies (openZeppelin)
+- Run ```truffle compile``` to compile locally the contract
+- Run ```truffle develop``` and then the command ```migrate```
+- Copy from the terminal the NFTLuxWine <b>contract address</b> and paste it to the address variable (line 1) of the following file:
+  - client/js/data.js
+- Run tests in Truffle console typing <b>test</b>
+- Add/change in Metamask the development network rpc 9545 and id 1337
+### Frontend directory
+- cd client
+- Open index.html with live server -> http://localhost:5500 
 
-## ABI - Address settings
-Deploy the smart contract and edit the file at: ./client/js/data.js
+## Create NFT to locally deployed contract
+- In the terminal run: ``` truffle develop ```
+- Initialize contract: ``` let contract = await NFTLuxWine.deployed ```
+- Mint the first nft: ``` contract.mintWine("https://gateway.pinata.cloud/ipfs/QmZUn1TJScL9m51fyqm1Pnx6HtCNTci2v3FvukuSSfshYM/1", "Barolo_XEdition1999", web3.utils.toWei("1"), true)```
+- Mint another nft: ``` contract.mintWine("https://gateway.pinata.cloud/ipfs/QmZUn1TJScL9m51fyqm1Pnx6HtCNTci2v3FvukuSSfshYM/2", "Barolo_XEdition1992", web3.utils.toWei("4"), true)```
+- Import local address to metamask using the private key or send Eth directly to it writing this function to the console:
+  - web3.eth.sendTransaction({ from: "<your local address>", to: "<your local network wallet>", value: web3.utils.toWei("10") })
+- Open local UI with live server at http://localhost:5500
+- Make sure your Metamask localhost network is in port 9545 and chain id is 1337
+- If you get TXRejectedError when sending a transaction, reset your Metamask account from Advanced settings.
+- Buy and sell nft directly from the UI in the marketplace page using another address account
+- Set the on sale status and price of yours nft in the profile page
 
 ## The following functionalities were tested:
 
