@@ -34,7 +34,7 @@ contract("NFTLuxWine", function (accounts) {
   });
 
   describe("Purchase", () => {
-    it("should be purchased only by other account, not by the owner", async () => {
+    it("should be purchased only by other account", async () => {
       await instance.mintWine("www.uri.it", "Barolo", 100, true, { from: Winery });
       await instance.purchaseWine(1, { from: User, value: 100 });
     });
@@ -44,7 +44,7 @@ contract("NFTLuxWine", function (accounts) {
       await catchRevert(instance.purchaseWine(1, { from: Winery, value: 100 }));
     });
 
-    it("should be equal to the price offers", async () => {
+    it("price should be equal to the price offers", async () => {
       await instance.mintWine("www.uri.it", "Barolo", 2000, true, { from: Winery });
       await instance.purchaseWine(1, { from: User, value: 2000 });
       await catchRevert(instance.purchaseWine(1, { from: User, value: 1999 }));

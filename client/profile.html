@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.6.1/web3.min.js"
+    integrity="sha512-5erpERW8MxcHDF7Xea9eBQPiRtxbse70pFcaHJuOhdEBQeAxGQjUwgJbuBDWve+xP/u5IoJbKjyJk50qCnMD7A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+  <link rel="stylesheet" href="css/style.css">
+  <title>PROFILE</title>
+</head>
+
+<body>
+  <div class="topBar">
+    <h1>NFT LUXURY WINE</h1>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="marketplace.html">Marketplace</a></li>
+      <li><a href="winery.html">Winery</a></li>
+      <li class="active"><a href="profile.html">Profile</a></li>
+    </ul>
+  </div>
+  <div class="metamaskContainer">
+    <div>
+      <p id="metamaskDetected"></p>
+    </div>
+    <div id="connectMetamaskButtonContainer" class="hide">
+      <button id="connectMetamaskButton">Connect Metamask</button>
+      <p id="pendingApproval"></p>
+      <img id="metamaskIcon" class="hide" src="img/metamask.png" alt="">
+    </div>
+  </div>
+
+  <div style="display: flex; gap: 1em; flex-wrap: wrap; justify-content: center;" id="mylistwine"></div>
+
+  <!-- Scripts -->
+  <script type="module" src="js/index.js"></script>
+  <script type="module" src="js/profile.js"></script>
+</body>
+
+</html>

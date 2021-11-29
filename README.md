@@ -26,10 +26,22 @@ Display all nft on sale in the marketplace page
 Display owned nft in the profile page
 Reedem the physical assets associated to nft (will be implemented in the future)
 
-
+## ABI & CONTRACT ADDRESS SETTINGS
+Deploy the smart contract and edit the file at: ./client/js/data.js
 
 ## The following functionalities were tested:
 
+1. CONTRACT
+   1. Should have an owner
+   2. Is owned by the winery
+
+2. MINT
+   1. Should be minted only by the Winery
+
+3. PURCHASE
+   1. Should be purchased only by other account
+   2. Should be not purchased by the owner
+   3. Price should be equal to the price offers
 
 
 

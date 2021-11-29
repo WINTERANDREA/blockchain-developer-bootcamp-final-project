@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.6.1/web3.min.js"
+    integrity="sha512-5erpERW8MxcHDF7Xea9eBQPiRtxbse70pFcaHJuOhdEBQeAxGQjUwgJbuBDWve+xP/u5IoJbKjyJk50qCnMD7A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+  <link rel="stylesheet" href="css/style.css">
+  <title>WINERY</title>
+</head>
+
+<body>
+  <div class="topBar">
+    <h1>NFT LUXURY WINE</h1>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="marketplace.html">Marketplace</a></li>
+      <li class="active"><a href="winery.html">Winery</a></li>
+      <li><a href="profile.html">Profile</a></li>
+    </ul>
+  </div>
+  <div class="metamaskContainer">
+    <div>
+      <p id="metamaskDetected"></p>
+    </div>
+    <div id="connectMetamaskButtonContainer" class="hide">
+      <button id="connectMetamaskButton">Connect Metamask</button>
+      <p id="pendingApproval"></p>
+      <img id="metamaskIcon" class="hide" src="img/metamask.png" alt="">
+    </div>
+  </div>
+
+  <div style="display: flex; flex-wrap: wrap; gap: 1em; justify-content: center;">
+    <div>
+      <div>
+        <h3 id="totalsupply"></h3>
+      </div>
+
+
+      <div>
+        <div class=" inline">
+          <label for="uri">Uri</label>
+          <input id="uri" type="text">
+        </div>
+        <div class="inline">
+          <label for="name">Name</label>
+          <input id="name" type="text">
+        </div>
+        <div class="inline">
+          <label for="price">Price (eth)</label>
+          <input id="price" type="number">
+        </div>
+        <div class="inline">
+          <label for="onSale">onSale</label>
+          <input id="onsale" type="checkbox">
+        </div>
+      </div>
+      <button style="width: 100%;margin-top: 10px;" id="mintWine">MINT</button>
+      <p class="note">*Only the contract address owner can mint a new nft</p>
+      <p class="note">** Use this uri to mint the first 10 NFT Luxury Wine:<br>
+        https://gateway.pinata.cloud/ipfs/QmZUn1TJScL9m51fyqm1Pnx6HtCNTci2v3FvukuSSfshYM/</p>
+
+      <!-- <p>NFT PROJECT SYMBOL</p>
+      <button id="symbol">SYMBOL</button>
+
+      <h3>INSERT WINE ID BEFORE CHECK NEXT PARAMS</h3>
+      <div class="inline">
+        <label for="wineId">Wine ID</label>
+        <input id="wineId" type="number">
+      </div>
+
+      <div class="inline">
+        <p>NFT WINE URI</p>
+        <button id="wineuri">URI</button>
+      </div>
+      <p id="wineuri-value"></p>
+
+      <p>BALANCE</p>
+      <button id="balance">BALANCE</button> -->
+
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script type="module" src="js/index.js"></script>
+  <script type="module" src="js/winery.js"></script>
+</body>
+
+</html>
