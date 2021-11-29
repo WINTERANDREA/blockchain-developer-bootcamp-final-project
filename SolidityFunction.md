@@ -1,10 +1,7 @@
 # Solidity architecture (function names and their inputs and outputs)
 
 ## This project is based on ERC721 Open Zeppelin smart contracts:
-Counters.sol
-Ownable.sol
-ReentrancyGuard.sol
-ERC721Enumerable.sol
+Counters.sol, Ownable.sol, ReentrancyGuard.sol, ERC721Enumerable.sol
 
 ## Custom Function
 1. Winery will be able to mint their own nft
