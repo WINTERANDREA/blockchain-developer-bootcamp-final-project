@@ -1,13 +1,16 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 
-contract NFTLuxWine is  Ownable, ReentrancyGuard, ERC721Enumerable{
+/// @title Contract for ERC 721 Marketplace  
+/// @author Andrea Casero
+/// @notice Physically (Not yet redeemable) marketplace for luxury wines
+/// @dev Minting is made manually one by one and needs to be associated to a custom uri
+contract NFTLuxWine is Ownable, ReentrancyGuard, ERC721Enumerable{
     using Counters for Counters.Counter;
     Counters.Counter private _wineIds;
     
@@ -124,12 +127,6 @@ contract NFTLuxWine is  Ownable, ReentrancyGuard, ERC721Enumerable{
         _wineMeta[_wineId].onSale = false;
         _transfer(wineSeller, msg.sender, _wineId);
         payable(wineSeller).transfer(msg.value);
-        
-        
-        //_approve(msg.sender, _wineId);
-        //_wineMeta[_wineId].onSale = false;
-        //safeTransferFrom(wineSeller,  msg.sender, _wineId);
-        //payable(wineSeller).transfer(msg.value);
     }
     
     

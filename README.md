@@ -1,7 +1,7 @@
 # blockchain-developer-bootcamp-final-project
 Project preview deployed on Ropsten Network 
 
-** Get Ropsten Eth Faucet
+Get Ropsten Eth Faucet
 https://faucet.dimensions.network/
 
 ## Project Name
@@ -11,14 +11,20 @@ NFT LUXURY WINE
 Create a Physically-Redeemable marketplace for wines
 
 ## Description
- Luxury Wine NFT Marketplace based on openZeppelin ERC721 contract.
- The goal of the project is allow winery to publish unique wine collection selling the bottle as a physical-digital asset.
- Marketplace users can buy the bottle, set on sale and price.
- The marketplace will have a key features that allow nft owner to redeem the bottle asking the winery to ship it(still figuring out which will be the best method to handle it within the smart contract/backend).
+ Luxury Wine NFT Marketplace is based on openZeppelin ERC721 contracts.
+ The goal of the project is allow winery to mint wine associated to real bottle and sell it as physical-digital assets.
+ Marketplace Users can:
+ - buy 
+ - sell
+ - set on sale / not on sale status
+ - set new price
+ 
+ At the moment the minting process is not automated that means Winery needs to upload nft image on IPFS (ex. through pinata service) and mint manually one by one. In the future the entire process will be automated.
+ Default uri for testing: https://gateway.pinata.cloud/ipfs/QmZUn1TJScL9m51fyqm1Pnx6HtCNTci2v3FvukuSSfshYM/
 
- At the moment the minting process is not automated that means Winery needs to upload nft image on IPFS (easily through pinata service) and mint manually one by one. In the future the entire process will be automated.
+ In the next future will be integrated the possiblity to redeem the bottle asking to the winery to ship at specific address (after authentication).
 
-## Requirements
+## Project Requirements
 Winery (contract owner) can mint nft.
 User can't mint nft.
 User can buy the nft.
@@ -30,10 +36,10 @@ Display all nft on sale in the marketplace page
 Display owned nft in the profile page
 Reedem the physical assets associated to nft (will be implemented in the future)
 
+## Frontend directory
+./client
 
-## FRONTEND
-
-## ABI & CONTRACT ADDRESS SETTINGS
+## ABI - Address settings
 Deploy the smart contract and edit the file at: ./client/js/data.js
 
 ## The following functionalities were tested:
@@ -51,5 +57,5 @@ Deploy the smart contract and edit the file at: ./client/js/data.js
    3. Price should be equal to the price offers
 
 
-## PERSONAL ETHEREUM ACCOUNT FOR NFT CERTIFICATION
+## PERSONAL ETHEREUM ACCOUNT FOR CONSENSYS NFT CERTIFICATION
 0x404c74f4D7DdF401B728E146D6af010877bca04f
