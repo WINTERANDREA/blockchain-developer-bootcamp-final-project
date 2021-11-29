@@ -22,7 +22,7 @@ Create a Physically-Redeemable marketplace for wines
  At the moment the minting process is not automated that means Winery needs to upload nft image on IPFS (ex. through pinata service) and mint manually one by one. In the future the entire process will be automated.
  Default uri for testing: https://gateway.pinata.cloud/ipfs/QmZUn1TJScL9m51fyqm1Pnx6HtCNTci2v3FvukuSSfshYM/
 
- In the next future will be integrated the possiblity to redeem the bottle asking to the winery to ship at specific address (after authentication).
+ In the next future will be integrated the REDEEM functionality where the bottle's owner can ask the winery to ship the physical bottle to a specific physical address (after authentication).
 
 ## Project Requirements
 Winery (contract owner) can mint nft.
