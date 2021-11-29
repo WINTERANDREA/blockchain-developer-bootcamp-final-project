@@ -1,17 +1,15 @@
 # blockchain-developer-bootcamp-final-project
-Project preview deployed on Ropsten Network 
 
-Get Ropsten Eth Faucet
-https://faucet.dimensions.network/
+## Project Preview Live on Ethereum Testnet(Ropsten)
 
 ## Project Name
 NFT LUXURY WINE
 
 ## Project Scope
-Create a Physically-Redeemable marketplace for wines
+Create a Physically-Redeemable marketplace to trade Luxury Wine
 
 ## Description
- Luxury Wine NFT Marketplace is based on openZeppelin ERC721 contracts.
+ NFT Luxury Wine Marketplace is based on openZeppelin ERC721 contracts.
  The goal of the project is allow winery to mint wine associated to real bottle and sell it as physical-digital assets.
  Marketplace Users can:
  - buy 
@@ -36,6 +34,21 @@ Create a Physically-Redeemable marketplace for wines
 - Display owned nft in the profile page
 - Reedem the physical assets associated to the nft (will be implemented in the future)
 
+## How to run this project locally:
+### Prerequisites
+- Node.js >= v14
+- Truffle(Ganache)
+- Npm
+- git checkout Main
+
+### Contracts
+- Run npm install in project root to install Truffle and smart contract dependencies (openZeppelin)
+- Run local testnet in port 9545 with an Ethereum client, e.g. Ganache
+  - ```truffle compile```
+- truffle migrate --network development
+- truffle console --network development
+- Run tests in Truffle console: test
+development network id is 1337, remember to change it in Metamask as well!
 ## Frontend directory
 ./client
 
