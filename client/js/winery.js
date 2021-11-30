@@ -28,7 +28,7 @@ totalsupply();
 // const etherValue = Web3.utils.fromWei('1000000000000000000', 'ether');
 // console.log(etherValue);
 // // => 1
-
+let loader = document.querySelector(".loader");
 mintWine.onclick = async () => {
   if (window.ethereum.selectedAddress == null) {
     alert("Please connect your metamask account");
@@ -40,6 +40,7 @@ mintWine.onclick = async () => {
     return;
   }
 
+  loader.classList.remove("hide");
   var wineId = document.querySelector("#wineId").innerHTML;
   var uri = document.querySelector("#uri").value;
   var name = document.querySelector("#name").value;
@@ -59,6 +60,7 @@ mintWine.onclick = async () => {
 
   var mintedWine = await contract.methods.mintWine(newUri, newName, Web3.utils.toWei(price, "ether"), newOnsale).send({ from: ethereum.selectedAddress });
   var tokenId = mintedWine.events.Transfer.returnValues.tokenId;
+  loader.classList.add("hide");
   alert(`Succesfully minted NFT Luxury Wine with id ${tokenId}`);
   window.location.reload();
 };
