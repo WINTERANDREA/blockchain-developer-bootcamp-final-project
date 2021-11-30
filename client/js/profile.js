@@ -152,7 +152,10 @@ displayWineHtml();
 btnNewPrice.addEventListener("click", async (e) => {
   let newPrice = document.getElementById("newPrice").value;
   let wineId = parseInt(e.target.dataset.wineid);
-  await contract.methods.setWinePrice(wineId, Web3.utils.toWei(newPrice, "ether")).send({ from: ethereum.selectedAddress }, (err, res) => {
+  console.log(newPrice);
+  console.log(Web3.utils.toWei(newPrice, "ether"));
+  let priceFormat = Web3.utils.toWei(newPrice, "ether");
+  await contract.methods.setWinePrice(wineId, priceFormat).send({ from: ethereum.selectedAddress }, (err, res) => {
     if (err) {
       alert(err);
     }

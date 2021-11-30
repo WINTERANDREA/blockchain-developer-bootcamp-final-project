@@ -140,6 +140,9 @@ input[type="number"] {
   display: flex;
   flex-direction: row;
   margin-top: 10px;
+  border: none;
+  margin: 20px 0px;
+  cursor: pointer;
 }
 
 .inline label,
@@ -150,6 +153,15 @@ input[type="number"] {
 
 .inline input {
   width: 100%;
+  border: none;
+  font-size: 16px;
+  letter-spacing: 2px;
+  border-bottom: 1px solid #333;
+  text-align: left;
+}
+
+.inline input:focus {
+  outline: none;
 }
 
 .note {
@@ -161,10 +173,10 @@ input[type="number"] {
 }
 
 .metamaskContainer {
-  background: rgb(225 232 246 / 87%);
+  background: rgba(200, 173, 168, 0.3);
   border-radius: 7px;
-  margin: 2em 1em;
-  padding: 1em;
+  margin: 20px;
+  padding: 10px;
 }
 .active {
   font-weight: bold;
@@ -394,4 +406,56 @@ input[type="number"] {
 
 .btnconfirm h2 {
   color: gold;
+}
+
+.btnbuy {
+  background: #333;
+}
+
+.btnbuy:hover {
+  background: gold;
+  box-shadow: inset 2px 5px 7px rgba(0, 0, 0, 0.1);
+}
+
+.btnbuy:hover * {
+  color: goldenrod;
+}
+
+.btnbuy h2 {
+  color: gold;
+}
+
+.winery-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+.btnwinery {
+  background: #333;
+}
+
+.btnwinery:hover {
+  background: rgb(98, 2, 86);
+  box-shadow: inset 2px 5px 7px rgba(0, 0, 0, 0.1);
+}
+
+.btnwinery:hover * {
+  color: rgb(224, 5, 224);
+}
+
+.btnwinery h2 {
+  color: rgb(224, 5, 224);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 990px) {
+  .navbar {
+    flex-direction: column;
+  }
 }

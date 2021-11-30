@@ -14,27 +14,29 @@
 </head>
 
 <body>
-  <div class="topBar">
-    <h1>NFT LUXURY WINE</h1>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="marketplace.html">Marketplace</a></li>
-      <li class="active"><a href="winery.html">Winery</a></li>
-      <li><a href="profile.html">Profile</a></li>
-    </ul>
-  </div>
-  <div class="metamaskContainer">
-    <div>
-      <p id="metamaskDetected"></p>
+  <div class="navbar">
+    <div class="topBar">
+      <h1>NFT LUXURY WINE</h1>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="marketplace.html">Marketplace</a></li>
+        <li class="active"><a href="winery.html">Winery</a></li>
+        <li><a href="profile.html">Profile</a></li>
+      </ul>
     </div>
-    <div id="connectMetamaskButtonContainer" class="hide">
-      <button id="connectMetamaskButton">Connect Metamask</button>
-      <p id="pendingApproval"></p>
-      <img id="metamaskIcon" class="hide" src="img/metamask.png" alt="">
+    <div class="metamaskContainer">
+      <div>
+        <p id="metamaskDetected"></p>
+      </div>
+      <div id="connectMetamaskButtonContainer" class="hide">
+        <button id="connectMetamaskButton">Connect Metamask</button>
+        <p id="pendingApproval"></p>
+        <img id="metamaskIcon" class="hide" src="img/metamask.png" alt="">
+      </div>
     </div>
   </div>
 
-  <div style="display: flex; flex-wrap: wrap; gap: 1em; justify-content: center;">
+  <div class="winery-container">
     <div>
       <div>
         <h3 id="totalsupply"></h3>
@@ -58,7 +60,9 @@
           <label for="onSale">onSale</label>
           <input id="onsale" type="checkbox">
         </div>
-        <button type="submit" style="width: 100%;margin-top: 10px;" id="mintWine" value="MINT">MINT</button>
+        <button type="submit" class="btn btnwinery" id="mintWine" value="MINT">
+          <h2>MINT</h2>
+        </button>
 
       </form>
 

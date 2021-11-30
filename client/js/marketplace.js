@@ -33,9 +33,16 @@ const setWines = async () => {
             <img src="${i.uri}.png" width="100%" alt="${i.name}">
           </div>
           <div class="textContainer">
-            <h4>${i.name}</h4>
-            <input class="form-input" type="text" disabled value=${owner}></input>
-            <button data-price="${i.price}" data-id="${i.id}" class="buyBtns"  id="btn${i.id}" style="width: 100%; margin-top: 5px"><h2 class="eth-icon" style="display: inline">${Web3.utils.fromWei(i.price, "ether")}</h2></button>
+            <h2>${i.name}</h2>
+
+            <div class="price-label">
+              <img width="15px; margin-top:3px" src="./img/ethereum-1.svg" alt="ethereum-icon">
+              <span>${Web3.utils.fromWei(i.price, "ether")}</span>
+            </div>
+
+            <input style="width:90%" class="form-input" type="text" disabled value=${owner}></input>
+
+            <button class="btnbuy btn" data-price="${i.price}" data-id="${i.id}" class="buyBtns"  id="btn${i.id}"><h2 >BUY</h2></button>
           </div>
         </div>
       `;
@@ -48,7 +55,7 @@ const setWines = async () => {
 };
 
 const setBtns = () => {
-  var buyBtns = document.getElementsByClassName("buyBtns");
+  var buyBtns = document.getElementsByClassName("btnbuy");
   for (let i of buyBtns) {
     i.addEventListener("click", (e) => {
       console.log(e.currentTarget.dataset.id);
