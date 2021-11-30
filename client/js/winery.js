@@ -30,6 +30,10 @@ totalsupply();
 // // => 1
 
 mintWine.onclick = async () => {
+  if (window.ethereum.selectedAddress == null) {
+    alert("Please connect your metamask account");
+    return;
+  }
   let contractOwner = await contract.methods.getOwnerAddress().call();
   if (contractOwner.toLowerCase() != ethereum.selectedAddress.toLowerCase()) {
     alert("Sorry! Only the owner of the contract can mint NFT Luxury Wine");

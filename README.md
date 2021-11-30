@@ -111,6 +111,10 @@ Create an .env file with the following variables if you want deploy the project 
 - INFURAROPSTEN=
 - ETHERSCAN=
 
+## Deploy on Testnet Ropsten
+```truffle compile```
+```truffle deploy --network ropsten --reset```
+
 ## Verify deployed contract on Etherscan (Ropsten) with Truffle plugin
 ``` truffle run verify NFTLuxWine --network ropsten ```
 
@@ -122,6 +126,7 @@ Create an .env file with the following variables if you want deploy the project 
 - Handle multiple Winery 
 - Create an Erc20 token for the marketplace
 - Analyze Erc 1155
+  
 ## PERSONAL ETHEREUM ACCOUNT FOR CONSENSYS NFT CERTIFICATION
 0x404c74f4D7DdF401B728E146D6af010877bca04f
 
