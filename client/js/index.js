@@ -7,6 +7,7 @@ const connectMetamaskButtonContainer = document.querySelector("#connectMetamaskB
 const connectMetamaskButton = document.querySelector("#connectMetamaskButton");
 const pendingApproval = document.querySelector("#pendingApproval");
 const metamaskIcon = document.querySelector("#metamaskIcon");
+const mmMessage = document.querySelector(".mm-message");
 //const inputNumber = document.querySelector("#inputNumber");
 //const submitInputNumber = document.querySelector("#submitInputNumber");
 const mintWine = document.querySelector("#mintWine");
@@ -65,10 +66,12 @@ const networkChanged = () => {
   alert(`Network switched to ${networks[ethereum.chainId]}\n`);
   console.log(networks[ethereum.chainId]);
   if (networks[ethereum.chainId] === "Ropsten Test Network") {
+    mmMessage.classList.add("hide");
     window.location.reload();
     console.log("yes");
   } else {
     console.log("Else");
+    mmMessage.classList.remove("hide");
   }
   //Aggiungere condizionali
 };
