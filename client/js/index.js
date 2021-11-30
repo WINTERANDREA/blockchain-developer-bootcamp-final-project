@@ -36,6 +36,7 @@ const connectMetamask = async () => {
     let account = await ethereum.request({ method: "eth_requestAccounts" });
     if (window.ethereum.chainId !== "0x3") {
       alert("Please switch to the Ropsten network");
+      mmMessage.classList.remove("hide");
     }
     pendingApproval.innerText = `Connected account: ${account[0]}`;
   } catch (e) {
@@ -66,12 +67,11 @@ const networkChanged = () => {
   alert(`Network switched to ${networks[ethereum.chainId]}\n`);
   console.log(networks[ethereum.chainId]);
   if (networks[ethereum.chainId] === "Ropsten Test Network") {
-    mmMessage.classList.add("hide");
     window.location.reload();
+    mmMessage.classList.add("hide");
     console.log("yes");
   } else {
     console.log("Else");
-    mmMessage.classList.remove("hide");
   }
   //Aggiungere condizionali
 };
