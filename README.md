@@ -104,9 +104,10 @@ In the next future will be integrated the REDEEM functionality where the bottle'
 - test:  tests for smart contracts
 
 ## Environment variables (not needed for running project locally)
-MNEMONIC=
-INFURAROPSTEN=
-ETHERSCAN=
+Create an .env file with the following variables if you want deploy the project to a testnet and verify the contract on etherscan
+- MNEMONIC=
+- INFURAROPSTEN=
+- ETHERSCAN=
 
 ## Verify deployed contract on Etherscan with Truffle plugin
 ``` truffle run verify NFTLuxWine --network ropsten ```
