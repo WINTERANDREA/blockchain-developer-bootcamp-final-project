@@ -61,16 +61,21 @@ In the next future will be integrated the REDEEM functionality where the bottle'
 - Npm
 - git checkout Main
 
+### URI Configuration
+- Set your uri (nft images). In Truffle, constructor params go in /migrations. Add your uri param in the following file
+  - migrations/2_deploy_contracts.js:
+   ```deployer.deploy(Contract, "https://gateway.pinata.cloud/ipfs/QmZUn1TJScL9m51fyqm1Pnx6HtCNTci2v3FvukuSSfshYM/");```
+  - test/NFTLuxWine.test.js:
+   ``` beforeEach(async () => {instance = await NFTLuxWine.new("https://gateway.pinata.cloud/ipfs/QmZUn1TJScL9m51fyqm1Pnx6HtCNTci2v3FvukuSSfshYM/")});``` 
 ### Contracts
-- Set the uri (nft images) constructor. In Truffle, constructor params go in /migrations. Set the uri something like:
-  - ```deployer.deploy(Contract, "https://gateway.pinata.cloud/ipfs/QmZUn1TJScL9m51fyqm1Pnx6HtCNTci2v3FvukuSSfshYM/");```
 - Run ```npm install``` in the project root directory to install Truffle and smart contract dependencies (openZeppelin)
+- Run local testnet in port 9545 with an Ethereum client, e.g. Ganache
 - Run ```truffle compile``` to compile locally the contract
 - Run ```truffle develop``` and then the command ```migrate```
-- Copy from the terminal the NFTLuxWine <b>contract address</b> and paste it to the address variable (line 1) of the following file:
+- Copy the <b>contract address</b> deployed on local network and paste it in the following file:
   - client/js/data.js
-- Run tests in Truffle console typing <b>test</b>
-- Set the Metamsk development network rpc as 9545 and id as 1337
+- Run tests in Truffle console: test
+- Set the Metamsk development network rpc 9545 and id 1337
 ### Frontend directory
 - cd client
 - Open index.html with live server -> http://localhost:5500 
