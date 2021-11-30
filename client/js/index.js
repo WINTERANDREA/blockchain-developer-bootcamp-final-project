@@ -71,6 +71,7 @@ const networkChanged = () => {
     mmMessage.classList.add("hide");
     console.log("yes");
   } else {
+    mmMessage.classList.remove("hide");
     console.log("Else");
   }
   //Aggiungere condizionali
