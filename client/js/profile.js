@@ -73,6 +73,7 @@ const renderWineOwned = async (wineOwnedMeta) => {
   }
 };
 
+let loader = document.querySelector(".loader-container");
 const setOnSale = async () => {
   var btnonsale = document.getElementsByClassName("btnonsale");
   for (let i of btnonsale) {
@@ -82,14 +83,28 @@ const setOnSale = async () => {
       let onsale = saleState === "true";
       try {
         if (onsale === true) {
-          let setOnSale = await contract.methods.setWineonSale(wineId, !onsale).send({ from: ethereum.selectedAddress });
+          loader.classList.remove("hide");
+          await contract.methods
+            .setWineonSale(wineId, !onsale)
+            .send({ from: ethereum.selectedAddress })
+            .catch(() => {
+              loader.classList.add("hide");
+            });
           alert(`The NFT Luxury Wine with id ${wineId} is now locked and not available on the marketplace!`);
+          loader.classList.add("hide");
           window.location.reload();
           return;
         }
         if (onsale === false) {
-          let setOnSale = await contract.methods.setWineonSale(wineId, !onsale).send({ from: ethereum.selectedAddress });
+          loader.classList.remove("hide");
+          await contract.methods
+            .setWineonSale(wineId, !onsale)
+            .send({ from: ethereum.selectedAddress })
+            .catch(() => {
+              loader.classList.add("hide");
+            });
           alert(`The NFT Luxury Wine with id ${wineId} is now listed on the marketplace!`);
+          loader.classList.add("hide");
           window.location.reload();
           return;
         }
@@ -143,12 +158,16 @@ const displayWineHtml = async () => {
 displayWineHtml();
 
 btnNewPrice.addEventListener("click", async (e) => {
-  let newPrice = document.getElementById("newPrice").value;
+  let price = document.getElementById("newPrice").value;
   let wineId = parseInt(e.currentTarget.dataset.wineid);
-  console.log(newPrice);
-  console.log(Web3.utils.toWei(newPrice, "ether"));
-  let priceFormat = Web3.utils.toWei(newPrice, "ether");
-  await contract.methods.setWinePrice(wineId, priceFormat).send({ from: ethereum.selectedAddress });
+  loader.classList.remove("hide");
+  await contract.methods
+    .setWinePrice(wineId, Web3.utils.toWei(price, "ether"))
+    .send({ from: ethereum.selectedAddress })
+    .catch(() => {
+      loader.classList.add("hide");
+    });
+  loader.classList.remove("hide");
   alert(`Price successfully updated! The new price is ${newPrice} ETH`);
   window.location.reload();
 });

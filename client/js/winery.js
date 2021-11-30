@@ -15,7 +15,7 @@ const totalsupply = async () => {
   if (!totalSupply) {
     totalSupply == 0;
   }
-  h3.innerHTML = `The Winery has already minted <h2 id="wineId" style="display:inline; color: purple"> ${totalSupply}</h2> NFT Luxury Wine`;
+  h3.innerHTML = `The Winery has already minted <h2 id="wineId" style="display:inline; color: gold"> ${totalSupply}</h2> NFT Luxury Wine`;
   totalsupply.appendChild(h3);
 };
 
@@ -28,7 +28,7 @@ totalsupply();
 // const etherValue = Web3.utils.fromWei('1000000000000000000', 'ether');
 // console.log(etherValue);
 // // => 1
-let loader = document.querySelector(".loader");
+let loader = document.querySelector(".loader-container");
 mintWine.onclick = async () => {
   if (window.ethereum.selectedAddress == null) {
     alert("Please connect your metamask account");
@@ -49,7 +49,7 @@ mintWine.onclick = async () => {
   wineId = parseInt(wineId);
   let newWineId = wineId + 1;
   let newUri = uri + newWineId;
-  let newName = name + "_" + newWineId;
+  // let newName = name + "_" + newWineId;
   let newOnsale = new Boolean();
   if (onsale.checked) {
     newOnsale = true;
@@ -58,7 +58,12 @@ mintWine.onclick = async () => {
   }
   console.log(newOnsale, typeof newOnsale);
 
-  var mintedWine = await contract.methods.mintWine(newUri, newName, Web3.utils.toWei(price, "ether"), newOnsale).send({ from: ethereum.selectedAddress });
+  var mintedWine = await contract.methods
+    .mintWine(newUri, name, Web3.utils.toWei(price, "ether"), newOnsale)
+    .send({ from: ethereum.selectedAddress })
+    .catch(() => {
+      loader.classList.add("hide");
+    });
   var tokenId = mintedWine.events.Transfer.returnValues.tokenId;
   loader.classList.add("hide");
   alert(`Succesfully minted NFT Luxury Wine with id ${tokenId}`);

@@ -66,6 +66,7 @@ const setBtns = () => {
   }
 };
 
+let loader = document.querySelector(".loader-container");
 async function purchaseWineF(id, price) {
   let wineOwner = await contract.methods.ownerOf(id).call();
   console.log(wineOwner);
@@ -75,11 +76,16 @@ async function purchaseWineF(id, price) {
     alert("Lucky! You are already the owner of this NFT Luxury Wine");
     return;
   }
-  var wineBought = await contract.methods.purchaseWine(id).send({ from: ethereum.selectedAddress, value: price });
-  var receipt = wineBought.events;
-  console.log(receipt);
+  loader.classList.remove("hide");
+  await contract.methods
+    .purchaseWine(id)
+    .send({ from: ethereum.selectedAddress, value: price })
+    .catch(() => {
+      loader.classList.add("hide");
+    });
   const priceString = price.toString();
   alert(`You have succefully purchase the NFT Luxury Wine for ${Web3.utils.fromWei(priceString, "ether")} ETH `);
+  loader.classList.add("hide");
   window.location.reload();
 }
 
