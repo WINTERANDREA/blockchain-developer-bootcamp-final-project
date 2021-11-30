@@ -8,26 +8,9 @@ const initializeWeb3 = (ethProvider) => {
 var web3instance = initializeWeb3(window.ethereum);
 var contract = new web3instance.eth.Contract(abi, address);
 
-// const listToken = contract
-//   .getPastEvents("Transfer", {
-//     filter: {
-//       _from: "0x0000000000000000000000000000000000000000",
-//     },
-//     fromBlock: 0,
-//   })
-//   .then((events) => {
-//     console.log(events);
-//     for (let event of events) {
-//       console.log(event.returnValues.tokenId);
-//     }
-//   });
-
-// Per https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md, there's an optional "enumeration extension". If this is implemented for the token you're interested in, then you can just call balanceOf to get the number of tokens owned by the account, followed by tokenOfOwnerByIndex in a loop to get each owned token ID.
-
-// Discover all of a user's owned tokens
+// Discover all user's owned tokens
 const getBalanceOf = async () => {
   const balance = await contract.methods.balanceOf(ethereum.selectedAddress).call();
-  console.log("balance", balance);
   return balance;
 };
 
@@ -71,6 +54,8 @@ const renderWineOwned = async (wineOwnedMeta) => {
 
       <button class='${i.onSale == true ? "sale " : "notsale "}btnonsale ' data-onsale="${i.onSale}" data-id="${i.id}" style="width: 100%; margin-top: 5px"><h2 style="display: inline">${i.onSale ? "Lock" : "Sell"}</h2></button>
 
+      <button class="btnprice" data-price="${Web3.utils.fromWei(i.price, "ether")}" data-id="${i.id}" style="width: 100%; margin-top: 5px"><h2 style="display: inline">Set Price</h2></button>
+
       <button style="width: 100%; margin-top: 5px" disabled><h4 style="display: inline" >REDEEM</h4></button>
     </div> 
   </div>
@@ -81,17 +66,9 @@ const renderWineOwned = async (wineOwnedMeta) => {
   }
 };
 
-//getWineMeta().then((data) => renderWineOwned(data).then(() => setOnSale()));
-
 const setOnSale = async () => {
   var btnonsale = document.getElementsByClassName("btnonsale");
-  const symbol = await contract.methods.symbol().call();
-  console.log(symbol, btnonsale);
   for (let i of btnonsale) {
-    let onsalestring = i.dataset.onsale;
-    let onsale = onsalestring === "true";
-    console.log(onsale, typeof onsale);
-
     i.addEventListener("click", async (e) => {
       let wineId = parseInt(e.currentTarget.dataset.id);
       let saleState = e.currentTarget.dataset.onsale;
@@ -117,10 +94,42 @@ const setOnSale = async () => {
   }
 };
 
-const funzioneFinale = async () => {
-  let wineMeta = await getWineMeta();
-  let wineOwned = await renderWineOwned(wineMeta);
-  await setOnSale(wineOwned);
+const setPrice = async () => {
+  var btnprice = document.getElementsByClassName("btnprice");
+  for (let i of btnprice) {
+    i.addEventListener("click", async (e) => {
+      let wineId = parseInt(e.currentTarget.dataset.id);
+      let winePrice = e.currentTarget.dataset.price;
+      // Get the modal and <span> element that closes the modal
+      let modal = document.getElementById("priceModal");
+      let span = document.getElementsByClassName("close")[0];
+      let currentPrice = document.getElementById("currentPrice");
+      let btnNewPrice = document.getElementById("btnNewPrice");
+
+      btnNewPrice.setAttribute("data-wineid", wineId);
+
+      // When the user clicks the button, open the modal
+      modal.style.display = "block";
+      currentPrice.value = winePrice;
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function () {
+        modal.style.display = "none";
+      };
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
+    });
+  }
 };
 
-funzioneFinale();
+const displayWineHtml = async () => {
+  let wineMeta = await getWineMeta();
+  await renderWineOwned(wineMeta);
+  await setOnSale();
+  await setPrice();
+};
+
+displayWineHtml();

@@ -61,6 +61,8 @@ In the next future will be integrated the REDEEM functionality where the bottle'
 - git checkout Main
 
 ### Contracts
+- Set the uri (nft images) constructor. In Truffle, constructor params go in /migrations. Set the uri something like:
+  - ```deployer.deploy(Contract, "https://gateway.pinata.cloud/ipfs/QmZUn1TJScL9m51fyqm1Pnx6HtCNTci2v3FvukuSSfshYM/");```
 - Run ```npm install``` in the project root directory to install Truffle and smart contract dependencies (openZeppelin)
 - Run ```truffle compile``` to compile locally the contract
 - Run ```truffle develop``` and then the command ```migrate```
@@ -72,9 +74,9 @@ In the next future will be integrated the REDEEM functionality where the bottle'
 - cd client
 - Open index.html with live server -> http://localhost:5500 
 
-## Create NFT to locally deployed contract
+### Create NFT to locally deployed contract
 - In the terminal run: ``` truffle develop ```
-- Initialize contract: ``` let contract = await NFTLuxWine.deployed ```
+- Initialize contract: ``` let contract = await NFTLuxWine.deployed() ```
 - Mint the first nft: ``` contract.mintWine("https://gateway.pinata.cloud/ipfs/QmZUn1TJScL9m51fyqm1Pnx6HtCNTci2v3FvukuSSfshYM/1", "Barolo_XEdition1999", web3.utils.toWei("1"), true)```
 - Mint another nft: ``` contract.mintWine("https://gateway.pinata.cloud/ipfs/QmZUn1TJScL9m51fyqm1Pnx6HtCNTci2v3FvukuSSfshYM/2", "Barolo_XEdition1992", web3.utils.toWei("4"), true)```
 - Import local address to metamask using the private key or send Eth directly to it writing this function to the console: ```web3.eth.sendTransaction({ from: "<your local address>", to: "<your local network wallet>", value: web3.utils.toWei("10") })```
@@ -109,7 +111,7 @@ Create an .env file with the following variables if you want deploy the project 
 - INFURAROPSTEN=
 - ETHERSCAN=
 
-## Verify deployed contract on Etherscan with Truffle plugin
+## Verify deployed contract on Etherscan (Ropsten) with Truffle plugin
 ``` truffle run verify NFTLuxWine --network ropsten ```
 
 ## FUTURE IMPROVEMENT

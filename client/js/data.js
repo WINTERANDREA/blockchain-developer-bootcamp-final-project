@@ -1,8 +1,14 @@
-export const address = "0x6102C00a7a997308Cb734E2c5f7Ff4D69Da5b4D3";
+export const address = "0x9d84809ED9508b80102ef23E0bb018946874Be5D";
 
 export const abi = [
   {
-    inputs: [],
+    inputs: [
+      {
+        internalType: "string",
+        name: "uri",
+        type: "string",
+      },
+    ],
     stateMutability: "nonpayable",
     type: "constructor",
   },
@@ -490,7 +496,7 @@ export const abi = [
     inputs: [
       {
         internalType: "uint256",
-        name: "tokenId",
+        name: "wineId",
         type: "uint256",
       },
     ],
