@@ -298,7 +298,7 @@ input[type="number"] {
   color: #000;
 }
 
-#setNewPrice {
+#btnNewPrice {
   width: 100%;
   padding: 10px;
   text-align: center;
