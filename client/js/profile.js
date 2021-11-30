@@ -107,6 +107,7 @@ const setPrice = async () => {
     i.addEventListener("click", async (e) => {
       let wineId = parseInt(e.currentTarget.dataset.id);
       let winePrice = e.currentTarget.dataset.price;
+
       // Get the modal and <span> element that closes the modal
       let modal = document.getElementById("priceModal");
       let span = document.getElementsByClassName("close")[0];
@@ -143,7 +144,7 @@ displayWineHtml();
 
 btnNewPrice.addEventListener("click", async (e) => {
   let newPrice = document.getElementById("newPrice").value;
-  let wineId = parseInt(e.target.dataset.wineid);
+  let wineId = parseInt(e.currentTarget.dataset.wineid);
   console.log(newPrice);
   console.log(Web3.utils.toWei(newPrice, "ether"));
   let priceFormat = Web3.utils.toWei(newPrice, "ether");
