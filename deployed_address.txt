@@ -1,2 +1,3 @@
-Address:
-Network:
+Address: 0x08Ec8506a395a451C94dD96cdF978e0683badba8
+Network: Ropsten
+Contract Address Owner (Winery): 0x404c74f4D7DdF401B728E146D6af010877bca04f
