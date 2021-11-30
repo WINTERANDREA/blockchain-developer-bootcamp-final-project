@@ -105,6 +105,9 @@ In the next future will be integrated the REDEEM functionality where the bottle'
    2. Should be not purchased by the owner
    3. Price should be equal to the price offers
 
+## Screencast video
+https://youtu.be/IXUa5VzsAyM
+
 ## Directory structure
 - client: frontend using html, css and javascript
 - contracts: smart contract directory

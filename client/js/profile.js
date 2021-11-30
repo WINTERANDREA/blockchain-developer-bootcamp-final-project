@@ -168,6 +168,6 @@ btnNewPrice.addEventListener("click", async (e) => {
       loader.classList.add("hide");
     });
   loader.classList.remove("hide");
-  alert(`Price successfully updated! The new price is ${newPrice} ETH`);
+  alert(`Price successfully updated! The new price is ${price} ETH`);
   window.location.reload();
 });
