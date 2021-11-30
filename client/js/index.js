@@ -64,6 +64,12 @@ const connectionSuccessful = () => {
 const networkChanged = () => {
   alert(`Network switched to ${networks[ethereum.chainId]}\n`);
   console.log(networks[ethereum.chainId]);
+  if (networks[ethereum.chainId] === "Ropsten Test Network") {
+    window.location.reload();
+    console.log("yes");
+  } else {
+    console.log("Else");
+  }
   //Aggiungere condizionali
 };
 
