@@ -47,16 +47,23 @@ const renderWineOwned = async (wineOwnedMeta) => {
       <img src="${i.uri}.png" width="100%" alt="name">
     </div>
     <div class="textContainer">
-      <h4>${i.name}</h4>
+      <h2>${i.name}</h2>
+
+      <div class="price-label">
+        <img width="15px; margin-top:3px" src="./img/ethereum-1.svg" alt="ethereum-icon">
+        <span>${Web3.utils.fromWei(i.price, "ether")}</span>
+      </div>
+
       <h4 class='${i.onSale == true ? "saleText " : "notsaleText "}'>${i.onSale ? "On Sale" : "Locked"}</h4>
-      <input class="form-input" type="text" disabled value=${ethereum.selectedAddress}></input>
-      <button data-price="${i.price}" data-id="${i.id}" id="btn${i.id}" style="width: 100%"><h2 class="eth-icon" style="display: inline">${Web3.utils.fromWei(i.price, "ether")}</button>
+      
+      <input style="width:90%" class="form-input" type="text" disabled value=${ethereum.selectedAddress}></input>
 
-      <button class='${i.onSale == true ? "sale " : "notsale "}btnonsale ' data-onsale="${i.onSale}" data-id="${i.id}" style="width: 100%; margin-top: 5px"><h2 style="display: inline">${i.onSale ? "Lock" : "Sell"}</h2></button>
+      <button class='${i.onSale == true ? "sale " : "notsale "}btnonsale btn' data-onsale="${i.onSale}" data-id="${i.id}" ><h2 >${i.onSale ? "Lock" : "Sell"}</h2></button>
 
-      <button class="btnprice" data-price="${Web3.utils.fromWei(i.price, "ether")}" data-id="${i.id}" style="width: 100%; margin-top: 5px"><h2 style="display: inline">Set Price</h2></button>
+      <button class="btnprice btn" data-price="${Web3.utils.fromWei(i.price, "ether")}" data-id="${i.id}" ><h2>Set Price</h2></button>
 
-      <button style="width: 100%; margin-top: 5px" disabled><h4 style="display: inline" >REDEEM</h4></button>
+      <button class="btn btnredeem" disabled><h2 class="redeem">Redeem Wine</h2><div class="not-redeem">Not Available</div></button>
+      
     </div> 
   </div>
   `;
@@ -75,14 +82,22 @@ const setOnSale = async () => {
       let onsale = saleState === "true";
       try {
         if (onsale === true) {
-          let setOnSale = await contract.methods.setWineonSale(wineId, !onsale).send({ from: ethereum.selectedAddress });
-          console.log(setOnSale);
+          let setOnSale = await contract.methods.setWineonSale(wineId, !onsale).send({ from: ethereum.selectedAddress }, (err, res) => {
+            if (err) {
+              alert(err);
+            }
+          });
+          alert(`The NFT Luxury Wine with id ${wineId} is now locked and not available on the marketplace!`);
           window.location.reload();
           return;
         }
         if (onsale === false) {
-          let setOnSale = await contract.methods.setWineonSale(wineId, !onsale).send({ from: ethereum.selectedAddress });
-          console.log(setOnSale);
+          let setOnSale = await contract.methods.setWineonSale(wineId, !onsale).send({ from: ethereum.selectedAddress }, (err, res) => {
+            if (err) {
+              alert(err);
+            }
+          });
+          alert(`The NFT Luxury Wine with id ${wineId} is now listed on the marketplace!`);
           window.location.reload();
           return;
         }
@@ -133,3 +148,15 @@ const displayWineHtml = async () => {
 };
 
 displayWineHtml();
+
+btnNewPrice.addEventListener("click", async (e) => {
+  let newPrice = document.getElementById("newPrice").value;
+  let wineId = parseInt(e.target.dataset.wineid);
+  await contract.methods.setWinePrice(wineId, Web3.utils.toWei(newPrice, "ether")).send({ from: ethereum.selectedAddress }, (err, res) => {
+    if (err) {
+      alert(err);
+    }
+  });
+  alert(`Price successfully updated! The new price is ${newPrice} ETH`);
+  window.location.reload();
+});
