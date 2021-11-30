@@ -87,7 +87,7 @@ In the next future will be integrated the REDEEM functionality where the bottle'
 - Mint another nft: ``` contract.mintWine("https://gateway.pinata.cloud/ipfs/QmZUn1TJScL9m51fyqm1Pnx6HtCNTci2v3FvukuSSfshYM/2", "Barolo_XEdition1992", web3.utils.toWei("4"), true)```
 - Import local address to metamask using the private key or send Eth directly to it writing this function to the console: ```web3.eth.sendTransaction({ from: "<your local address>", to: "<your local network wallet>", value: web3.utils.toWei("10") })```
 - Open marketplace.html with live server -> http://localhost:5500 
-- Make sure your Metamask localhost network is on port 9545 and chain id 1337
+- Make sure your Metamask localhost network is in port 9545 and chain id is 1337
 - If you get TXRejectedError when sending a transaction, reset your Metamask account from Advanced settings.
 - Buy and sell nft directly from the UI in the marketplace page using another address account
 - Set the on sale status and price of yours nft in the profile page

@@ -82,21 +82,13 @@ const setOnSale = async () => {
       let onsale = saleState === "true";
       try {
         if (onsale === true) {
-          let setOnSale = await contract.methods.setWineonSale(wineId, !onsale).send({ from: ethereum.selectedAddress }, (err, res) => {
-            if (err) {
-              alert(err);
-            }
-          });
+          let setOnSale = await contract.methods.setWineonSale(wineId, !onsale).send({ from: ethereum.selectedAddress });
           alert(`The NFT Luxury Wine with id ${wineId} is now locked and not available on the marketplace!`);
           window.location.reload();
           return;
         }
         if (onsale === false) {
-          let setOnSale = await contract.methods.setWineonSale(wineId, !onsale).send({ from: ethereum.selectedAddress }, (err, res) => {
-            if (err) {
-              alert(err);
-            }
-          });
+          let setOnSale = await contract.methods.setWineonSale(wineId, !onsale).send({ from: ethereum.selectedAddress });
           alert(`The NFT Luxury Wine with id ${wineId} is now listed on the marketplace!`);
           window.location.reload();
           return;
@@ -155,11 +147,7 @@ btnNewPrice.addEventListener("click", async (e) => {
   console.log(newPrice);
   console.log(Web3.utils.toWei(newPrice, "ether"));
   let priceFormat = Web3.utils.toWei(newPrice, "ether");
-  await contract.methods.setWinePrice(wineId, priceFormat).send({ from: ethereum.selectedAddress }, (err, res) => {
-    if (err) {
-      alert(err);
-    }
-  });
+  await contract.methods.setWinePrice(wineId, priceFormat).send({ from: ethereum.selectedAddress });
   alert(`Price successfully updated! The new price is ${newPrice} ETH`);
   window.location.reload();
 });

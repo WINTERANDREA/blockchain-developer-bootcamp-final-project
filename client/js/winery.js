@@ -57,11 +57,7 @@ mintWine.onclick = async () => {
   }
   console.log(newOnsale, typeof newOnsale);
 
-  var mintedWine = await contract.methods.mintWine(newUri, newName, Web3.utils.toWei(price, "ether"), newOnsale).send({ from: ethereum.selectedAddress }, (err, res) => {
-    if (err) {
-      alert(err);
-    }
-  });
+  var mintedWine = await contract.methods.mintWine(newUri, newName, Web3.utils.toWei(price, "ether"), newOnsale).send({ from: ethereum.selectedAddress });
   var tokenId = mintedWine.events.Transfer.returnValues.tokenId;
   alert(`Succesfully minted NFT Luxury Wine with id ${tokenId}`);
   window.location.reload();
