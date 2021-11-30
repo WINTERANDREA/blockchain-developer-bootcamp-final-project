@@ -44,7 +44,7 @@ const renderWineOwned = async (wineOwnedMeta) => {
     const wineNFT = `
   <div class="wineCard" id="${i.id}" style="width:200px; text-align:center; margin: 20px" >
     <div class="imageContainer">
-      <img src="${i.uri}.png" width="100%" alt="name">
+      <img src="${i.uri}.png" width="100%" alt="${i.name}">
     </div>
     <div class="textContainer">
       <h2>${i.name}</h2>

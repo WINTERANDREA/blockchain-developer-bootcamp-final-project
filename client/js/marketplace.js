@@ -30,7 +30,7 @@ const setWines = async () => {
       const wineNFT = `
         <div class="wineCard" id="${i.id}" style="width:200px; text-align:center" >
           <div class="imageContainer">
-            <img src="${i.uri}.png" width="100%" alt="name">
+            <img src="${i.uri}.png" width="100%" alt="${i.name}">
           </div>
           <div class="textContainer">
             <h4>${i.name}</h4>

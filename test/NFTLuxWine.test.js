@@ -10,7 +10,7 @@ contract("NFTLuxWine", function (accounts) {
   const [Winery, User] = accounts;
 
   beforeEach(async () => {
-    instance = await NFTLuxWine.new();
+    instance = await NFTLuxWine.new("https://gateway.pinata.cloud/ipfs/QmZUn1TJScL9m51fyqm1Pnx6HtCNTci2v3FvukuSSfshYM/");
   });
 
   describe("Ready to be tested", () => {

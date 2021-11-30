@@ -345,6 +345,10 @@ input[type="number"] {
   border-bottom: 1px solid #000;
 }
 
+.price-container input:focus {
+  outline: none;
+}
+
 .btn {
   width: 100%;
   margin-top: 5px;
