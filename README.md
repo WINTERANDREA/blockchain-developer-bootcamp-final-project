@@ -83,8 +83,8 @@ In the next future will be integrated the REDEEM functionality where the bottle'
 ### Create NFT to locally deployed contract
 - In the terminal run: ``` truffle develop ```
 - Initialize contract: ``` let contract = await NFTLuxWine.deployed() ```
-- Mint the first nft: ``` contract.mintWine("https://gateway.pinata.cloud/ipfs/QmZUn1TJScL9m51fyqm1Pnx6HtCNTci2v3FvukuSSfshYM/1", "Barolo_XEdition1999", web3.utils.toWei("1"), true)```
-- Mint another nft: ``` contract.mintWine("https://gateway.pinata.cloud/ipfs/QmZUn1TJScL9m51fyqm1Pnx6HtCNTci2v3FvukuSSfshYM/2", "Barolo_XEdition1992", web3.utils.toWei("4"), true)```
+- Mint the first nft: ``` contract.mintWine("https://gateway.pinata.cloud/ipfs/Qmdb6nv6TWGUhGnjNZvjwvKQ3g41pFJqdCCkNJGp6ZPmw3/1", "Barolo_XEdition_1999", web3.utils.toWei("0.0001"), true)```
+- Mint another nft: ``` contract.mintWine("https://gateway.pinata.cloud/ipfs/Qmdb6nv6TWGUhGnjNZvjwvKQ3g41pFJqdCCkNJGp6ZPmw3/2", "Barolo_XEdition_2000", web3.utils.toWei("0.0003"), true)```
 - Import local address to metamask using the private key or send Eth directly to it writing this function to the console: ```web3.eth.sendTransaction({ from: "<your local address>", to: "<your local network wallet>", value: web3.utils.toWei("10") })```
 - Open marketplace.html with live server -> http://localhost:5500 
 - Make sure your Metamask localhost network is in port 9545 and chain id is 1337

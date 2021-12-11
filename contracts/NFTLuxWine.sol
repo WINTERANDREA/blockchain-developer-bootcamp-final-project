@@ -57,14 +57,14 @@ contract NFTLuxWine is Ownable, ReentrancyGuard, ERC721Enumerable{
     /// @notice NFT Luxury Wine full URI associated to the NFT Luxury Wine image
     /// @param wineId Wine Id associated to the nft
     /// @dev We override the parent function adding ".png" at the end of baseURI
-     function tokenURI(uint256 wineId)
-        public
-        view
-        override
-        returns (string memory)
-    {
-        return string(abi.encodePacked(super.tokenURI(wineId),".png"));
-    }
+    //  function tokenURI(uint256 wineId)
+    //     public
+    //     view
+    //     override
+    //     returns (string memory)
+    // {
+    //     return string(abi.encodePacked(super.tokenURI(wineId),".png"));
+    // }
     
     /// @notice Get all NFT Luxury Wine on sale
     /// @return Array with all the Wine where on sale is true

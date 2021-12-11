@@ -20,7 +20,7 @@
 
 const HDWalletProvider = require("@truffle/hdwallet-provider");
 require("dotenv").config();
-const infuraURL = process.env.INFURAROPSTEN;
+const infuraURL = process.env.INFURARINKEBY;
 // const fs = require("fs");
 // const mnemonic = fs.readFileSync(".env").toString().trim();
 const mnemonic = process.env.MNEMONIC;
@@ -60,9 +60,14 @@ module.exports = {
     // },
     // Useful for deploying to a public network.
     // NB: It's important to wrap the provider as a function.
-    ropsten: {
+    // ropsten: {
+    //   provider: () => new HDWalletProvider(mnemonic, infuraURL),
+    //   network_id: 3, // Ropsten's network id
+    //   gas: 5500000,
+    // },
+    rinkeby: {
       provider: () => new HDWalletProvider(mnemonic, infuraURL),
-      network_id: 3, // Ropsten's network id
+      network_id: 4, // Ropsten's network id
       gas: 5500000,
     },
     // ropsten: {
