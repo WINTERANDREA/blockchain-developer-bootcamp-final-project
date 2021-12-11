@@ -10,16 +10,13 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 /// @author Andrea Casero - winterandrea
 /// @notice Physically (Not yet redeemable) marketplace for luxury wines
 /// @dev Minting is made manually one by one and needs to be associated to a custom uri
-contract NFTLuxWine is Ownable, ReentrancyGuard, ERC721Enumerable{
+contract NFTLuxWine_Rinkeby is Ownable, ReentrancyGuard, ERC721Enumerable{
     using Counters for Counters.Counter;
     /// @dev Tracks Wine ids. Incremented before minting a new wine. First NFT Luxury Wine starts with _wineIds = 1;
     Counters.Counter private _wineIds;
     
     /// @dev Defined in the constructor function. 
     address payable  _owner;
-
-    /// @dev Remember to add the uri when deploy the contract. 
-    string baseURI;
     
     mapping (uint256 => WineMeta) private _wineMeta;
     
@@ -39,32 +36,19 @@ contract NFTLuxWine is Ownable, ReentrancyGuard, ERC721Enumerable{
     /// @param name Wine name
     event WineMetadata(uint256 indexed wineId, uint256 indexed price, bool indexed onSale, string name, string uri );
 
-    constructor(string memory uri) ERC721("NFTWINE", "WINE") {
+    constructor () ERC721("NFTWINE", "WINE") {
         _owner = payable(msg.sender);
-         baseURI = uri;
     }
 
-    function _baseURI() internal view override virtual returns (string memory) {
-        return baseURI;
+    
+    function baseTokenURI() public pure returns (string memory) {
+        return "https://gateway.pinata.cloud/ipfs/Qmdb6nv6TWGUhGnjNZvjwvKQ3g41pFJqdCCkNJGp6ZPmw3/";
     }
 
-    /// @notice Set a new Base URI
-    /// @param _newBaseURI new base uri 
-    function setBaseURI(string memory _newBaseURI) public virtual onlyOwner {
-        baseURI = _newBaseURI;
+     function tokenURI(uint256 _wineId) override public pure returns (string memory) {
+        return string(abi.encodePacked(baseTokenURI(), Strings.toString(_wineId)));
     }
 
-    /// @notice NFT Luxury Wine full URI associated to the NFT Luxury Wine image
-    /// @param wineId Wine Id associated to the nft
-    /// @dev We override the parent function adding ".png" at the end of baseURI
-    //  function tokenURI(uint256 wineId)
-    //     public
-    //     view
-    //     override
-    //     returns (string memory)
-    // {
-    //     return string(abi.encodePacked(super.tokenURI(wineId),".png"));
-    // }
     
     /// @notice Get all NFT Luxury Wine on sale
     /// @return Array with all the Wine where on sale is true
@@ -168,19 +152,20 @@ contract NFTLuxWine is Ownable, ReentrancyGuard, ERC721Enumerable{
     
     
     /// @notice Mint a new NFT Luxury Wine
-    /// @param _uri Wine uri associated with its image
     /// @dev In the UI we render the image adding ".png" to the uri
     /// @param _name Wine name
     /// @param _price Wine price (wei)
     /// @dev UI input takes ether but store in the contract as wei 
     /// @param _onSale Wine status (boolean)  true = on sale and false = not on sale
     /// @return NFT Luxury Wine Id
-    function mintWine( string memory _uri, string memory _name, uint256 _price, bool _onSale) public onlyOwner returns (uint256) {
+    function mintWine( string memory _name, uint256 _price, bool _onSale) public onlyOwner returns (uint256) {
         require(_price > 0);
         _wineIds.increment();
 
         uint256 newWineId = _wineIds.current();
         _mint(_owner, newWineId);
+
+        string memory _uri = string(abi.encodePacked(baseTokenURI(), Strings.toString(newWineId)));
 
         WineMeta memory meta = WineMeta(newWineId, _price, _onSale, _name, _uri);
         _setWineMeta(newWineId, meta);
