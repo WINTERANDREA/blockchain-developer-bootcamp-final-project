@@ -82,9 +82,9 @@ In the next future will be integrated the REDEEM functionality where the bottle'
 
 ### Create NFT to locally deployed contract
 - In the terminal run: ``` truffle develop ```
-- Initialize contract: ``` let contract = await NFTLuxWine.deployed() ```
-- Mint the first nft: ``` contract.mintWine("https://gateway.pinata.cloud/ipfs/Qmdb6nv6TWGUhGnjNZvjwvKQ3g41pFJqdCCkNJGp6ZPmw3/1", "Barolo_XEdition_1999", web3.utils.toWei("0.0001"), true)```
-- Mint another nft: ``` contract.mintWine("https://gateway.pinata.cloud/ipfs/Qmdb6nv6TWGUhGnjNZvjwvKQ3g41pFJqdCCkNJGp6ZPmw3/2", "Barolo_XEdition_2000", web3.utils.toWei("0.0003"), true)```
+- Initialize contract: ``` let contract = await NFTLuxWine_Rinkeby.deployed() ```
+- Mint the first nft: ``` contract.mintWine("Barolo_XEdition_1999", web3.utils.toWei("0.0001"), true) ```
+- Mint another nft: ``` contract.mintWine("Barolo_XEdition_2000", web3.utils.toWei("0.0003"), true) ```
 - Import local address to metamask using the private key or send Eth directly to it writing this function to the console: ```web3.eth.sendTransaction({ from: "<your local address>", to: "<your local network wallet>", value: web3.utils.toWei("10") })```
 - Open marketplace.html with live server -> http://localhost:5500 
 - Make sure your Metamask localhost network is in port 9545 and chain id is 1337
@@ -120,12 +120,12 @@ Create an .env file with the following variables if you want deploy the project 
 - INFURAROPSTEN=
 - ETHERSCAN=
 
-## Deploy on Testnet Ropsten
+## Deploy on Testnet Rinkeby
 ```truffle compile```
-```truffle deploy --network ropsten --reset```
+```truffle deploy --network rinkeby --reset```
 
-## Verify deployed contract on Etherscan (Ropsten) with Truffle plugin
-``` truffle run verify NFTLuxWine --network ropsten ```
+## Verify deployed contract on Etherscan (Rinkeby) with Truffle plugin
+``` truffle run verify NFTLuxWine_Rinkeby --network rinkeby ```
 
 ## FUTURE IMPROVEMENT
 - Use api for nft price live conversion eth-usd

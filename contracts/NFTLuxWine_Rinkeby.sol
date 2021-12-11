@@ -36,17 +36,17 @@ contract NFTLuxWine_Rinkeby is Ownable, ReentrancyGuard, ERC721Enumerable{
     /// @param name Wine name
     event WineMetadata(uint256 indexed wineId, uint256 indexed price, bool indexed onSale, string name, string uri );
 
-    constructor () ERC721("NFTWINE", "WINE") {
+    constructor () ERC721("NFT LUXURY WINE", "LUXWINE") {
         _owner = payable(msg.sender);
     }
 
     
     function baseTokenURI() public pure returns (string memory) {
-        return "https://gateway.pinata.cloud/ipfs/Qmdb6nv6TWGUhGnjNZvjwvKQ3g41pFJqdCCkNJGp6ZPmw3/";
+        return "https://gateway.pinata.cloud/ipfs/QmQV7cqVNPEWLpULC3Gg7XjQaCUnaotamE5smi7qAv1kbi/metadata/";
     }
 
      function tokenURI(uint256 _wineId) override public pure returns (string memory) {
-        return string(abi.encodePacked(baseTokenURI(), Strings.toString(_wineId)));
+        return string(abi.encodePacked(baseTokenURI(), Strings.toString(_wineId), ".json"));
     }
 
     

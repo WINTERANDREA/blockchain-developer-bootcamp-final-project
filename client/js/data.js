@@ -1,14 +1,8 @@
-export const address = "0x0224777FA3afF97d5e62f5fEA659cd2C4beB4301";
+export const address = "0xFfA6Ff35652E345b52204600Fc725E2826547161";
 
-export const abi = [
+export const abi =  [
     {
-      "inputs": [
-        {
-          "internalType": "string",
-          "name": "uri",
-          "type": "string"
-        }
-      ],
+      "inputs": [],
       "stateMutability": "nonpayable",
       "type": "constructor"
     },
@@ -430,26 +424,6 @@ export const abi = [
       "constant": true
     },
     {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "tokenId",
-          "type": "uint256"
-        }
-      ],
-      "name": "tokenURI",
-      "outputs": [
-        {
-          "internalType": "string",
-          "name": "",
-          "type": "string"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function",
-      "constant": true
-    },
-    {
       "inputs": [],
       "name": "totalSupply",
       "outputs": [
@@ -500,17 +474,38 @@ export const abi = [
       "type": "function"
     },
     {
-      "inputs": [
+      "inputs": [],
+      "name": "baseTokenURI",
+      "outputs": [
         {
           "internalType": "string",
-          "name": "_newBaseURI",
+          "name": "",
           "type": "string"
         }
       ],
-      "name": "setBaseURI",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
+      "stateMutability": "pure",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_wineId",
+          "type": "uint256"
+        }
+      ],
+      "name": "tokenURI",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -544,7 +539,7 @@ export const abi = [
               "type": "string"
             }
           ],
-          "internalType": "struct NFTLuxWine.WineMeta[]",
+          "internalType": "struct NFTLuxWine_Rinkeby.WineMeta[]",
           "name": "",
           "type": "tuple[]"
         }
@@ -690,7 +685,7 @@ export const abi = [
               "type": "string"
             }
           ],
-          "internalType": "struct NFTLuxWine.WineMeta",
+          "internalType": "struct NFTLuxWine_Rinkeby.WineMeta",
           "name": "",
           "type": "tuple"
         }
@@ -715,11 +710,6 @@ export const abi = [
     },
     {
       "inputs": [
-        {
-          "internalType": "string",
-          "name": "_uri",
-          "type": "string"
-        },
         {
           "internalType": "string",
           "name": "_name",
